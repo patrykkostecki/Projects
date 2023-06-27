@@ -1,0 +1,74 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="0C1B5F1E-DE3A-2803-C5CE-517089D4FAFB" name="Dostępność">
+<createdBy>patry</createdBy>
+<createdTime>2023-01-04 15:12:34 UTC</createdTime>
+<ownerDesignName>Projekt_RBD</ownerDesignName>
+<engineerTo>
+<item key="E62DE718-5B3F-AD24-B5C0-27D93159AD54" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ID" id="BB4B60B2-F3E6-02DB-0AB0-1CF491C1553E">
+<createdBy>patry</createdBy>
+<createdTime>2023-01-04 15:29:43 UTC</createdTime>
+<ownerDesignName>Projekt_RBD</ownerDesignName>
+<engineerTo>
+<item key="E62DE718-5B3F-AD24-B5C0-27D93159AD54" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Nazwa_Produktu" id="52BD1445-11CB-CEAE-66F5-69EDFD0F0FA2">
+<createdBy>patry</createdBy>
+<createdTime>2023-01-04 15:12:45 UTC</createdTime>
+<ownerDesignName>Projekt_RBD</ownerDesignName>
+<engineerTo>
+<item key="E62DE718-5B3F-AD24-B5C0-27D93159AD54" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Ilość_dostępnych_sztuk" id="AF1ADAD7-78CA-E467-9E80-040800450EFF">
+<createdBy>patry</createdBy>
+<createdTime>2023-01-04 15:12:50 UTC</createdTime>
+<ownerDesignName>Projekt_RBD</ownerDesignName>
+<engineerTo>
+<item key="E62DE718-5B3F-AD24-B5C0-27D93159AD54" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID_kolory" id="751F3C1D-E628-513E-7C06-108FBF54610B">
+<createdBy>patry</createdBy>
+<createdTime>2023-01-04 20:16:00 UTC</createdTime>
+<ownerDesignName>Projekt_RBD</ownerDesignName>
+<engineerTo>
+<item key="E62DE718-5B3F-AD24-B5C0-27D93159AD54" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID_rozmiary" id="7A334A48-C629-121D-A8B8-6936EF19F3DA">
+<createdBy>patry</createdBy>
+<createdTime>2023-01-04 20:16:14 UTC</createdTime>
+<ownerDesignName>Projekt_RBD</ownerDesignName>
+<engineerTo>
+<item key="E62DE718-5B3F-AD24-B5C0-27D93159AD54" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+</Entity>

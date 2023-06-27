@@ -1,0 +1,393 @@
+--------------------------------------------------------
+--  File created - pi¹tek-stycznia-20-2023   
+--------------------------------------------------------
+--------------------------------------------------------
+--  DDL for Table ADRESY
+--------------------------------------------------------
+
+  CREATE TABLE "PROJEKT"."ADRESY" 
+   (	"ID_ADRESY" NUMBER, 
+	"MIASTO" VARCHAR2(20 BYTE), 
+	"KOD_POCZTOWY" VARCHAR2(6 BYTE), 
+	"ULICA" VARCHAR2(20 BYTE), 
+	"NUMER_DOMU" VARCHAR2(8 BYTE), 
+	"NUMER_MIESZKANIA" NUMBER(5,0), 
+	"PESEL" NUMBER(11,0)
+   ) SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table DOSTAWY
+--------------------------------------------------------
+
+  CREATE TABLE "PROJEKT"."DOSTAWY" 
+   (	"ID_SPOSOB_DOSTAWY" NUMBER, 
+	"SPOSOB_DOSTAWY" VARCHAR2(30 BYTE)
+   ) SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table DOSTEPNOSC
+--------------------------------------------------------
+
+  CREATE TABLE "PROJEKT"."DOSTEPNOSC" 
+   (	"ID_DOSTEPNOSC" NUMBER, 
+	"ILOSC_DOSTEPNYCH_SZTUK" NUMBER(10,0), 
+	"ID_KOLORY" NUMBER, 
+	"ID_ROZMIARY" NUMBER
+   ) SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table GALERIA
+--------------------------------------------------------
+
+  CREATE TABLE "PROJEKT"."GALERIA" 
+   (	"ID_ZDJECIE_PRODUKTU" NUMBER, 
+	"ZDJECIE_PRODUKTU" BLOB
+   ) SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "USERS" 
+ LOB ("ZDJECIE_PRODUKTU") STORE AS SECUREFILE (
+  TABLESPACE "USERS" ENABLE STORAGE IN ROW CHUNK 8192
+  NOCACHE LOGGING  NOCOMPRESS  KEEP_DUPLICATES ) ;
+--------------------------------------------------------
+--  DDL for Table KATEGORIE
+--------------------------------------------------------
+
+  CREATE TABLE "PROJEKT"."KATEGORIE" 
+   (	"ID_KATEGORII" NUMBER, 
+	"MARKA" VARCHAR2(20 BYTE), 
+	"RODZAJ" VARCHAR2(25 BYTE)
+   ) SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table KLIENCI
+--------------------------------------------------------
+
+  CREATE TABLE "PROJEKT"."KLIENCI" 
+   (	"IMIE" VARCHAR2(20 BYTE), 
+	"NAZWISKO" VARCHAR2(20 BYTE), 
+	"LOGIN" VARCHAR2(15 BYTE), 
+	"HASLO" VARCHAR2(15 BYTE), 
+	"PESEL" NUMBER(11,0), 
+	"EMAIL" VARCHAR2(25 BYTE), 
+	"ID_ADRESY" NUMBER
+   ) SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table KOLORY
+--------------------------------------------------------
+
+  CREATE TABLE "PROJEKT"."KOLORY" 
+   (	"ID_KOLORY" NUMBER, 
+	"KOLOR" VARCHAR2(30 BYTE)
+   ) SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table PLATNOSCI
+--------------------------------------------------------
+
+  CREATE TABLE "PROJEKT"."PLATNOSCI" 
+   (	"ID_RODZAJ_PLATNOSCI" NUMBER, 
+	"RODZAJ_PLATNOSCI" VARCHAR2(30 BYTE)
+   ) SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table PRODUKTY
+--------------------------------------------------------
+
+  CREATE TABLE "PROJEKT"."PRODUKTY" 
+   (	"NAZWA_PRODUKTU" VARCHAR2(25 BYTE), 
+	"CENA" NUMBER(10,2), 
+	"OPIS" VARCHAR2(50 BYTE), 
+	"ID_DOSTEPNOSC" NUMBER(10,0), 
+	"ID_ZDJECIE_PRODUKTU" NUMBER, 
+	"ID_KATEGORII" NUMBER, 
+	"ID_KOLORY" NUMBER, 
+	"ID_ROZMIARY" NUMBER
+   ) SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table ROZMIARY
+--------------------------------------------------------
+
+  CREATE TABLE "PROJEKT"."ROZMIARY" 
+   (	"ID_ROZMIARY" NUMBER, 
+	"ROZMIAR" VARCHAR2(8 BYTE)
+   ) SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table ZAMOWIENIA
+--------------------------------------------------------
+
+  CREATE TABLE "PROJEKT"."ZAMOWIENIA" 
+   (	"ID_ZAMOWIENIA" NUMBER, 
+	"DATA_ZAMOWIENIA" TIMESTAMP (6), 
+	"ID_RODZAJ_PLATNOSCI" NUMBER, 
+	"ID_SPOSOB_DOSTAWY" NUMBER, 
+	"NAZWA_PRODUKTU" VARCHAR2(25 BYTE), 
+	"ILOSC" NUMBER, 
+	"PESEL" NUMBER(11,0)
+   ) SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "USERS" ;
+REM INSERTING into PROJEKT.ADRESY
+SET DEFINE OFF;
+REM INSERTING into PROJEKT.DOSTAWY
+SET DEFINE OFF;
+REM INSERTING into PROJEKT.DOSTEPNOSC
+SET DEFINE OFF;
+REM INSERTING into PROJEKT.GALERIA
+SET DEFINE OFF;
+REM INSERTING into PROJEKT.KATEGORIE
+SET DEFINE OFF;
+REM INSERTING into PROJEKT.KLIENCI
+SET DEFINE OFF;
+REM INSERTING into PROJEKT.KOLORY
+SET DEFINE OFF;
+REM INSERTING into PROJEKT.PLATNOSCI
+SET DEFINE OFF;
+REM INSERTING into PROJEKT.PRODUKTY
+SET DEFINE OFF;
+REM INSERTING into PROJEKT.ROZMIARY
+SET DEFINE OFF;
+REM INSERTING into PROJEKT.ZAMOWIENIA
+SET DEFINE OFF;
+--------------------------------------------------------
+--  DDL for Index PK_KATEGORIE
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "PROJEKT"."PK_KATEGORIE" ON "PROJEKT"."KATEGORIE" ("ID_KATEGORII") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index PK_KLIENCI
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "PROJEKT"."PK_KLIENCI" ON "PROJEKT"."KLIENCI" ("PESEL") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index PK_PLATNOSCI
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "PROJEKT"."PK_PLATNOSCI" ON "PROJEKT"."PLATNOSCI" ("ID_RODZAJ_PLATNOSCI") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index PK_PRODUKTY
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "PROJEKT"."PK_PRODUKTY" ON "PROJEKT"."PRODUKTY" ("NAZWA_PRODUKTU") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index PK_ADRESY
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "PROJEKT"."PK_ADRESY" ON "PROJEKT"."ADRESY" ("ID_ADRESY") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index PK_DOSTAWY
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "PROJEKT"."PK_DOSTAWY" ON "PROJEKT"."DOSTAWY" ("ID_SPOSOB_DOSTAWY") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index PK_GALERIA
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "PROJEKT"."PK_GALERIA" ON "PROJEKT"."GALERIA" ("ID_ZDJECIE_PRODUKTU") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index PK_DOSTEPNOSC
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "PROJEKT"."PK_DOSTEPNOSC" ON "PROJEKT"."DOSTEPNOSC" ("ID_DOSTEPNOSC") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index PK_ZAMOWIENIA
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "PROJEKT"."PK_ZAMOWIENIA" ON "PROJEKT"."ZAMOWIENIA" ("ID_ZAMOWIENIA") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index PK_KOLORY
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "PROJEKT"."PK_KOLORY" ON "PROJEKT"."KOLORY" ("ID_KOLORY") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index PK_ROZMIARY
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "PROJEKT"."PK_ROZMIARY" ON "PROJEKT"."ROZMIARY" ("ID_ROZMIARY") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  Constraints for Table ZAMOWIENIA
+--------------------------------------------------------
+
+  ALTER TABLE "PROJEKT"."ZAMOWIENIA" ADD CONSTRAINT "PK_ZAMOWIENIA" PRIMARY KEY ("ID_ZAMOWIENIA")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  TABLESPACE "USERS"  ENABLE;
+  ALTER TABLE "PROJEKT"."ZAMOWIENIA" MODIFY ("ILOSC" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table KOLORY
+--------------------------------------------------------
+
+  ALTER TABLE "PROJEKT"."KOLORY" ADD CONSTRAINT "PK_KOLORY" PRIMARY KEY ("ID_KOLORY")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  TABLESPACE "USERS"  ENABLE;
+  ALTER TABLE "PROJEKT"."KOLORY" MODIFY ("KOLOR" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table PRODUKTY
+--------------------------------------------------------
+
+  ALTER TABLE "PROJEKT"."PRODUKTY" ADD CONSTRAINT "PK_PRODUKTY" PRIMARY KEY ("NAZWA_PRODUKTU")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  TABLESPACE "USERS"  ENABLE;
+  ALTER TABLE "PROJEKT"."PRODUKTY" MODIFY ("CENA" NOT NULL ENABLE);
+  ALTER TABLE "PROJEKT"."PRODUKTY" MODIFY ("OPIS" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table ROZMIARY
+--------------------------------------------------------
+
+  ALTER TABLE "PROJEKT"."ROZMIARY" ADD CONSTRAINT "PK_ROZMIARY" PRIMARY KEY ("ID_ROZMIARY")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  TABLESPACE "USERS"  ENABLE;
+  ALTER TABLE "PROJEKT"."ROZMIARY" MODIFY ("ROZMIAR" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table KATEGORIE
+--------------------------------------------------------
+
+  ALTER TABLE "PROJEKT"."KATEGORIE" ADD CONSTRAINT "PK_KATEGORIE" PRIMARY KEY ("ID_KATEGORII")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  TABLESPACE "USERS"  ENABLE;
+  ALTER TABLE "PROJEKT"."KATEGORIE" MODIFY ("MARKA" NOT NULL ENABLE);
+  ALTER TABLE "PROJEKT"."KATEGORIE" MODIFY ("RODZAJ" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table DOSTAWY
+--------------------------------------------------------
+
+  ALTER TABLE "PROJEKT"."DOSTAWY" ADD CONSTRAINT "PK_DOSTAWY" PRIMARY KEY ("ID_SPOSOB_DOSTAWY")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  TABLESPACE "USERS"  ENABLE;
+  ALTER TABLE "PROJEKT"."DOSTAWY" MODIFY ("SPOSOB_DOSTAWY" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table DOSTEPNOSC
+--------------------------------------------------------
+
+  ALTER TABLE "PROJEKT"."DOSTEPNOSC" ADD CONSTRAINT "PK_DOSTEPNOSC" PRIMARY KEY ("ID_DOSTEPNOSC")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  TABLESPACE "USERS"  ENABLE;
+  ALTER TABLE "PROJEKT"."DOSTEPNOSC" MODIFY ("ILOSC_DOSTEPNYCH_SZTUK" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table ADRESY
+--------------------------------------------------------
+
+  ALTER TABLE "PROJEKT"."ADRESY" ADD CONSTRAINT "PK_ADRESY" PRIMARY KEY ("ID_ADRESY")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  TABLESPACE "USERS"  ENABLE;
+  ALTER TABLE "PROJEKT"."ADRESY" MODIFY ("MIASTO" NOT NULL ENABLE);
+  ALTER TABLE "PROJEKT"."ADRESY" MODIFY ("KOD_POCZTOWY" NOT NULL ENABLE);
+  ALTER TABLE "PROJEKT"."ADRESY" MODIFY ("ULICA" NOT NULL ENABLE);
+  ALTER TABLE "PROJEKT"."ADRESY" MODIFY ("NUMER_DOMU" NOT NULL ENABLE);
+  ALTER TABLE "PROJEKT"."ADRESY" MODIFY ("NUMER_MIESZKANIA" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table PLATNOSCI
+--------------------------------------------------------
+
+  ALTER TABLE "PROJEKT"."PLATNOSCI" ADD CONSTRAINT "PK_PLATNOSCI" PRIMARY KEY ("ID_RODZAJ_PLATNOSCI")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  TABLESPACE "USERS"  ENABLE;
+  ALTER TABLE "PROJEKT"."PLATNOSCI" MODIFY ("RODZAJ_PLATNOSCI" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table KLIENCI
+--------------------------------------------------------
+
+  ALTER TABLE "PROJEKT"."KLIENCI" ADD CONSTRAINT "PK_KLIENCI" PRIMARY KEY ("PESEL")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  TABLESPACE "USERS"  ENABLE;
+  ALTER TABLE "PROJEKT"."KLIENCI" MODIFY ("IMIE" NOT NULL ENABLE);
+  ALTER TABLE "PROJEKT"."KLIENCI" MODIFY ("NAZWISKO" NOT NULL ENABLE);
+  ALTER TABLE "PROJEKT"."KLIENCI" MODIFY ("LOGIN" NOT NULL ENABLE);
+  ALTER TABLE "PROJEKT"."KLIENCI" MODIFY ("HASLO" NOT NULL ENABLE);
+  ALTER TABLE "PROJEKT"."KLIENCI" MODIFY ("EMAIL" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table GALERIA
+--------------------------------------------------------
+
+  ALTER TABLE "PROJEKT"."GALERIA" ADD CONSTRAINT "PK_GALERIA" PRIMARY KEY ("ID_ZDJECIE_PRODUKTU")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  TABLESPACE "USERS"  ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table ADRESY
+--------------------------------------------------------
+
+  ALTER TABLE "PROJEKT"."ADRESY" ADD CONSTRAINT "FK_ADRESY_KLIENCI" FOREIGN KEY ("PESEL")
+	  REFERENCES "PROJEKT"."KLIENCI" ("PESEL") ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table DOSTEPNOSC
+--------------------------------------------------------
+
+  ALTER TABLE "PROJEKT"."DOSTEPNOSC" ADD CONSTRAINT "FK_DOSTEPNOSC_KOLORY" FOREIGN KEY ("ID_KOLORY")
+	  REFERENCES "PROJEKT"."KOLORY" ("ID_KOLORY") ENABLE;
+  ALTER TABLE "PROJEKT"."DOSTEPNOSC" ADD CONSTRAINT "FK_DOSTEPNOSC_ROZMIARY" FOREIGN KEY ("ID_ROZMIARY")
+	  REFERENCES "PROJEKT"."ROZMIARY" ("ID_ROZMIARY") ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table KLIENCI
+--------------------------------------------------------
+
+  ALTER TABLE "PROJEKT"."KLIENCI" ADD CONSTRAINT "FK_KLIENCI_ADRESY" FOREIGN KEY ("ID_ADRESY")
+	  REFERENCES "PROJEKT"."ADRESY" ("ID_ADRESY") ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table PRODUKTY
+--------------------------------------------------------
+
+  ALTER TABLE "PROJEKT"."PRODUKTY" ADD CONSTRAINT "FK_PRODUKTY_DOSTEPNOSC" FOREIGN KEY ("ID_DOSTEPNOSC")
+	  REFERENCES "PROJEKT"."DOSTEPNOSC" ("ID_DOSTEPNOSC") ENABLE;
+  ALTER TABLE "PROJEKT"."PRODUKTY" ADD CONSTRAINT "FK_PRODUKTY_GALERIA" FOREIGN KEY ("ID_ZDJECIE_PRODUKTU")
+	  REFERENCES "PROJEKT"."GALERIA" ("ID_ZDJECIE_PRODUKTU") ENABLE;
+  ALTER TABLE "PROJEKT"."PRODUKTY" ADD CONSTRAINT "FK_PRODUKTY_KATEGORIE" FOREIGN KEY ("ID_KATEGORII")
+	  REFERENCES "PROJEKT"."KATEGORIE" ("ID_KATEGORII") ENABLE;
+  ALTER TABLE "PROJEKT"."PRODUKTY" ADD CONSTRAINT "FK_PRODUKTY_KOLORY" FOREIGN KEY ("ID_KOLORY")
+	  REFERENCES "PROJEKT"."KOLORY" ("ID_KOLORY") ENABLE;
+  ALTER TABLE "PROJEKT"."PRODUKTY" ADD CONSTRAINT "FK_PRODUKTY_ROZMIARY" FOREIGN KEY ("ID_ROZMIARY")
+	  REFERENCES "PROJEKT"."ROZMIARY" ("ID_ROZMIARY") ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table ZAMOWIENIA
+--------------------------------------------------------
+
+  ALTER TABLE "PROJEKT"."ZAMOWIENIA" ADD CONSTRAINT "FK_ZAMOWIENIA_PLATNOSCI" FOREIGN KEY ("ID_RODZAJ_PLATNOSCI")
+	  REFERENCES "PROJEKT"."PLATNOSCI" ("ID_RODZAJ_PLATNOSCI") ENABLE;
+  ALTER TABLE "PROJEKT"."ZAMOWIENIA" ADD CONSTRAINT "FK_ZAMOWIENIA_DOSTAWY" FOREIGN KEY ("ID_SPOSOB_DOSTAWY")
+	  REFERENCES "PROJEKT"."DOSTAWY" ("ID_SPOSOB_DOSTAWY") ENABLE;
+  ALTER TABLE "PROJEKT"."ZAMOWIENIA" ADD CONSTRAINT "FK_ZAMOWIENIA_PRODUKTY" FOREIGN KEY ("NAZWA_PRODUKTU")
+	  REFERENCES "PROJEKT"."PRODUKTY" ("NAZWA_PRODUKTU") ENABLE;
+  ALTER TABLE "PROJEKT"."ZAMOWIENIA" ADD CONSTRAINT "FK_ZAMOWIENIA_KLIENCI" FOREIGN KEY ("PESEL")
+	  REFERENCES "PROJEKT"."KLIENCI" ("PESEL") ENABLE;
